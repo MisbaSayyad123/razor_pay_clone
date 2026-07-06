@@ -1,0 +1,41 @@
+package com.codingshuttle.razorpay.payment.entity;
+
+import com.codingshuttle.razorpay.common.eums.PaymentActor;
+import com.codingshuttle.razorpay.common.eums.PaymentEvent;
+import com.codingshuttle.razorpay.common.eums.PaymentStatus;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "payment_transition_log")
+public class PaymentTransitionLog {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(nullable = false, name = "payment_id")
+    private Payment payment;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="from_status", length = 30)
+    private PaymentStatus fromStatus;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="event", length = 30, nullable = false)
+    private PaymentEvent event;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="to_status", length = 30)
+    private PaymentStatus toStatus;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="actor", length = 100)
+    private PaymentActor actor;
+
+    @Column(nullable = false)
+    private LocalDateTime occurredAt;
+}
