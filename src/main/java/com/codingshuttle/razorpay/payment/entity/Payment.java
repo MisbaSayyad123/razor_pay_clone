@@ -27,7 +27,6 @@ public class Payment {
     @Column(nullable = false)
     private UUID merchantId;
 
-    //test for new branch commit 1
     @Embedded
     private Money amount;
 

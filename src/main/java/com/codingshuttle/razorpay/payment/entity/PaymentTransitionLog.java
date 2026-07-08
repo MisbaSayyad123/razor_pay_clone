@@ -24,8 +24,6 @@ public class PaymentTransitionLog {
     @Column(name="from_status", length = 30)
     private PaymentStatus fromStatus;
 
-    //test for new branch commit 2
-
     @Enumerated(EnumType.STRING)
     @Column(name="event", length = 30, nullable = false)
     private PaymentEvent event;
