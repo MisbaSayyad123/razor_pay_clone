@@ -2,13 +2,20 @@ package com.codingshuttle.razorpay.merchant.entity;
 
 import com.codingshuttle.razorpay.common.eums.Environment;
 import jakarta.persistence.*;
+import lombok.*;
 
 import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "api_key")
+@Getter
+@Setter
+
 public class ApiKey {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -29,6 +36,7 @@ public class ApiKey {
     private Environment environment;
 
     @Column(nullable = false)
+    @Builder.Default
     private boolean enabled =true;
 
 
