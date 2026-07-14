@@ -4,12 +4,18 @@ import com.codingshuttle.razorpay.common.eums.PaymentActor;
 import com.codingshuttle.razorpay.common.eums.PaymentEvent;
 import com.codingshuttle.razorpay.common.eums.PaymentStatus;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "payment_transition_log")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class PaymentTransitionLog {
 
     @Id

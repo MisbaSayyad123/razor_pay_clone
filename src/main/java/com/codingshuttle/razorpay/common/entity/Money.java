@@ -1,9 +1,14 @@
 package com.codingshuttle.razorpay.common.entity;
 
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
+import lombok.*;
 
 @Embeddable
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
+
 public class Money {
 
     private int amountUnits;
