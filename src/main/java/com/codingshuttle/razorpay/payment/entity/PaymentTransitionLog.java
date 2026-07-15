@@ -1,5 +1,6 @@
 package com.codingshuttle.razorpay.payment.entity;
 
+import com.codingshuttle.razorpay.common.entity.BaseEntity;
 import com.codingshuttle.razorpay.common.eums.PaymentActor;
 import com.codingshuttle.razorpay.common.eums.PaymentEvent;
 import com.codingshuttle.razorpay.common.eums.PaymentStatus;
@@ -10,13 +11,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "payment_transition_log")
+@Table(name = "payment_transition_log",
+        indexes = {
+                @Index(name="idx_payment_transition_log_payment_id", columnList = "payment_id")
+        })
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PaymentTransitionLog {
+public class PaymentTransitionLog extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

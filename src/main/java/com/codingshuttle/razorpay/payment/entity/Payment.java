@@ -1,5 +1,6 @@
 package com.codingshuttle.razorpay.payment.entity;
 
+import com.codingshuttle.razorpay.common.entity.BaseEntity;
 import com.codingshuttle.razorpay.common.entity.Money;
 import com.codingshuttle.razorpay.common.eums.PaymentMethod;
 import com.codingshuttle.razorpay.common.eums.PaymentStatus;
@@ -14,13 +15,17 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "payment",
+        indexes = {
+                @Index(name="idx_payment_order_id", columnList = "order_id"),
+                @Index(name="idx_payment_merchant_id", columnList = "merchant_id")
+        })
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Payment {
+public class Payment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

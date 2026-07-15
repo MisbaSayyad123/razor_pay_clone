@@ -1,7 +1,6 @@
-package com.codingshuttle.razorpay.operations;
+package com.codingshuttle.razorpay.operations.entity;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 
 import java.util.UUID;
 

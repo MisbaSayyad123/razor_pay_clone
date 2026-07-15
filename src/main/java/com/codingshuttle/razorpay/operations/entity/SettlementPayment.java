@@ -1,13 +1,10 @@
-package com.codingshuttle.razorpay.operations;
+package com.codingshuttle.razorpay.operations.entity;
 
-import com.codingshuttle.razorpay.payment.entity.Payment;
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name="settlement_payment")
-public class SettlementPayment {
+public class SettlementPayment  {
 
     @EmbeddedId
     private SettlementPaymentId id;
